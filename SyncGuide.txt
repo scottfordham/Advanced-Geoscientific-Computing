@@ -1,0 +1,11 @@
+# Sync local and fork to instructor
+git checkout main
+git fetch upstream
+git reset --hard upstream/main
+git push --force-with-lease classfork main   # keep your fork's main in sync
+
+# Update your work branch
+git checkout InClass
+git rebase main                               # or: git merge main
+# resolve → git add … → git rebase --continue
+git push --force-with-lease classfork InClass
